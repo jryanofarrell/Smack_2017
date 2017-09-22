@@ -1,0 +1,9 @@
+java and database:
+	https://netbeans.org/kb/docs/web/mysql-webapp.html
+	http://docs.oracle.com/javase/tutorial/jdbc/basics/gettingstarted.html
+	must install connector/j from MySQL
+	
+	must place properties xml in working dir of java project
+	(or have proper path to xml)
+	
+look up "clean URLs" for java

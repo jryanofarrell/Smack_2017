@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+    version="3.0">
+  <servlet>
+   <servlet-name>SnoopServlet</servlet-name>
+   <servlet-class>BasicWebApp.SnoopServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SnoopServlet</servlet-name>
+    <url-pattern>/snoop/*</url-pattern>
+ </servlet-mapping>
+ <servlet>
+   <servlet-name>BootstrapTest</servlet-name>
+   <servlet-class>BasicWebApp.BootstrapTest</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>BootstrapTest</servlet-name>
+    <url-pattern>/bootstrap/*</url-pattern>
+ </servlet-mapping>
+ <servlet>
+   <servlet-name>Rack</servlet-name>
+   <servlet-class>BasicWebApp.Rack</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Rack</servlet-name>
+    <url-pattern>/racks/*</url-pattern>
+ </servlet-mapping>
+ <servlet>
+   <servlet-name>Reserve</servlet-name>
+   <servlet-class>BasicWebApp.Reserve</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Reserve</servlet-name>
+    <url-pattern>/reserve/*</url-pattern>
+ </servlet-mapping>
+ </web-app>
+ 
