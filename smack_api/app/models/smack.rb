@@ -1,0 +1,2 @@
+class Smack < ApplicationRecord
+end
