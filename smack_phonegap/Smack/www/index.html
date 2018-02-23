@@ -42,7 +42,24 @@
     <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
 
     <link rel="stylesheet" type="text/css" href="css/index.css" />
-    
+    <script>
+        $(document).ready(function(){
+            $("lockbutton").click(function(){
+                $.get("http://ec2-52-15-199-183.us-east-2.compute.amazonaws.com/updateSlot/1/1/1", function(data, status){
+                    alert("Data: " + data + "\nStatus: " + status);
+                });
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function(){
+            $("unlockbutton").click(function(){
+                $.get("http://ec2-52-15-199-183.us-east-2.compute.amazonaws.com/updateSlot/1/1/0", function(data, status){
+                    alert("Data: " + data + "\nStatus: " + status);
+                });
+            });
+        });
+    </script>
     <title>Smack Home</title>
 </head>
 
@@ -52,7 +69,9 @@
             <h1>Smack!</h1>
         </div>
         </br></br>
-        <a href="http://ec2-52-15-199-183.us-east-2.compute.amazonaws.com/updateSlot/1/1/1" class="btn btn-info" role="button">Lock my bike!</a>
+        <lockbutton><button>Lock my bike!</button></lockbutton>
+        </br></br>
+        <unlockbutton><button>Unlock my bike!</button></unlockbutton>
     </div>
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
