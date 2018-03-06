@@ -1,48 +1,93 @@
-### Deploying a Flask application in AWS: An end-to-end tutorial
+![status: inactive](https://img.shields.io/badge/status-inactive-red.svg)
 
-This is the code that goes along with the detailed writeup here:
+This project is no longer actively developed or maintained.
 
-https://medium.com/@rodkey/deploying-a-flask-application-on-aws-a72daba6bb80
-
-It's a simple Flask app that writes and reads from a database. It uses Amazon RDS for the database backend, but you can make things even simpler and use a local DB.
-
-To tool around with the app directly, here's a quickstart guide. 
-
-Clone this repo to your local machine. In the top level directory, create a virtual environment:
-```
-$ virtualenv flask-aws
-$ source flask-aws/bin/activate
-```
-Now install the required modules:
-```
-$ pip install -r requirements.txt
-```
-To play with the app right away, you can use a local database. Edit ```config.py``` by commenting out the AWS URL and uncomment this line:
-```
-SQLALCHEMY_DATABASE_URI = 'sqlite:///test.db'
-```
-Next run:
-```
-$ python db_create.py
-```
-And the tables are created.  Now you can launch the app:
-```
-$ python application.py
-```
-And point your browser to http://0.0.0.0:5000
-
-Using the top form, you can write to the database:
-
-![Site main page](http://i.imgur.com/2d66GIB.png)
-
-![Data entered](http://i.imgur.com/AQWdD2Q.png)
-
-Get confirmation:
-
-![confirmaton](http://i.imgur.com/JtemL7a.png)
-
-Using the bottom form, you can see the last 1 to 9 entires of the database in reverse chronological order:
-
-![results](http://i.imgur.com/LFJeKDz.png)
+For new work on this check out [flask Hello World](https://github.com/GoogleCloudPlatform/python-docs-samples/tree/master/appengine/standard/flask/hello_world).
 
 
+## Python Flask Skeleton for Google App Engine
+
+A skeleton for building Python applications on Google App Engine with the
+[Flask micro framework](http://flask.pocoo.org).
+
+See our other [Google Cloud Platform github
+repos](https://github.com/GoogleCloudPlatform) for sample applications and
+scaffolding for other python frameworks and use cases.
+
+## Run Locally
+1. Install the [App Engine Python SDK](https://developers.google.com/appengine/downloads).
+See the README file for directions. You'll need python 2.7 and [pip 1.4 or later](http://www.pip-installer.org/en/latest/installing.html) installed too.
+
+2. Clone this repo with
+
+   ```
+   git clone https://github.com/GoogleCloudPlatform/appengine-flask-skeleton.git
+   ```
+3. Install dependencies in the project's lib directory.
+   Note: App Engine can only import libraries from inside your project directory.
+
+   ```
+   cd appengine-flask-skeleton
+   pip install -r requirements.txt -t lib
+   ```
+4. Run this project locally from the command line:
+
+   ```
+   dev_appserver.py .
+   ```
+
+Visit the application [http://localhost:8080](http://localhost:8080)
+
+See [the development server documentation](https://developers.google.com/appengine/docs/python/tools/devserver)
+for options when running dev_appserver.
+
+## Deploy
+To deploy the application:
+
+1. Use the [Admin Console](https://appengine.google.com) to create a
+   project/app id. (App id and project id are identical)
+1. [Deploy the
+   application](https://developers.google.com/appengine/docs/python/tools/uploadinganapp) with
+
+   ```
+   appcfg.py update -A <your-project-id> -V v1 .
+   ```
+   
+   If this isn't your first deployment, you will need to set the new version as the default version with
+   
+   ```
+   appcfg.py set_default_version -V v1 -A <your-project-id>
+   ```
+
+1. Congratulations!  Your application is now live at your-app-id.appspot.com
+
+## Next Steps
+This skeleton includes `TODO` markers to help you find basic areas you will want
+to customize.
+
+### Relational Databases and Datastore
+To add persistence to your models, use
+[NDB](https://developers.google.com/appengine/docs/python/ndb/) for
+scale.  Consider
+[CloudSQL](https://developers.google.com/appengine/docs/python/cloud-sql)
+if you need a relational database.
+
+### Installing Libraries
+See the [Third party
+libraries](https://developers.google.com/appengine/docs/python/tools/libraries27)
+page for libraries that are already included in the SDK.  To include SDK
+libraries, add them in your app.yaml file. Other than libraries included in
+the SDK, only pure python libraries may be added to an App Engine project.
+
+### Feedback
+Star this repo if you found it useful. Use the github issue tracker to give
+feedback on this repo.
+
+## Contributing changes
+See [CONTRIB.md](CONTRIB.md)
+
+## Licensing
+See [LICENSE](LICENSE)
+
+## Author
+Logan Henriquez and Johan Euphrosine
